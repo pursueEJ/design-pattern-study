@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class DBUtil {
+    +getConnection(): Connection
+}
+
+class CustomerDAO {
+    +addCustomer(): void
+}
+
+DBUtil <|-- CustomerDAO
+
+@enduml

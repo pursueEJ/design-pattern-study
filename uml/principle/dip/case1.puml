@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class TXTDataConvertor {
+    +readFile(): void
+}
+
+class ExcelDataConvertor {
+    +readFile(): void
+}
+
+class CustomerDAO {
+    +addCustomers(): void
+}
+
+TXTDataConvertor <.. CustomerDAO
+ExcelDataConvertor <.. CustomerDAO
+
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ChartDisplay {
+    +display(String type): void
+}
+
+class PieChart {
+    +display(): void
+}
+
+class BarChart {
+    +display(): void
+}
+
+PieChart <.. ChartDisplay
+BarChart <.. ChartDisplay
+
+@enduml

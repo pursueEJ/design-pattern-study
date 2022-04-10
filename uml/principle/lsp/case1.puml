@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class EmailSender {
+    +send(CommonCustomer): void
+    +send(VIPCustomer): void
+}
+
+class CommonCustomer {
+    -name: String
+    -email: String
+    +getName(): String
+    +setName(): void
+    +getEmail(): String
+    +setEmail(): void
+}
+
+class VIPCustomer {
+    -name: String
+    -email: String
+    +getName(): String
+    +setName(): void
+    +getEmail(): String
+    +setEmail(): void
+}
+
+VIPCustomer <.. EmailSender
+CommonCustomer <.. EmailSender
+
+@enduml

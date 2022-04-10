@@ -1,0 +1,11 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class CustomerDataChart {
+    +getConnection(): Connection
+    +findCustomers(): List
+    +createChart(): void
+    +displayChart(): void
+}
+
+@enduml

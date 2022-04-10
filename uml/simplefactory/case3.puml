@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Chart {
+    +display(): void
+}
+
+class PieChart {
+    +PieChart()
+    +display(): void
+}
+
+class LineChart {
+    +LineChart()
+    +display(): void
+}
+
+class HistogramChart {
+    +HistogramChart()
+    +display(): void
+}
+
+Chart <|-- PieChart
+Chart <|-- HistogramChart
+Chart <|-- LineChart
+
+class ChartFactory {
+    +getChart(String type): Chart
+}
+
+PieChart <.. ChartFactory
+LineChart <.. ChartFactory
+HistogramChart <.. ChartFactory
+@enduml

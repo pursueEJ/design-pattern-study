@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface DataHandler {
+    +dataRead(): void
+}
+
+interface XmlTransformer {
+    +transformToXml(): void
+}
+
+interface ChartHandler {
+    +createChart(): void
+    +displayChart(): void
+}
+
+interface ReportHandler {
+    +createReport(): void
+    +displayReport(): void
+}
+
+class ConcreteClass {
+    +dataRead(): void
+    +createChart(): void
+    +displayChart(): void
+}
+
+DataHandler <|-- ConcreteClass
+ChartHandler <|-- ConcreteClass
+
+class Client
+
+DataHandler <.. Client
+ChartHandler <.. Client
+
+@enduml

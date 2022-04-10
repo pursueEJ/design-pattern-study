@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Button
+
+class List
+class Label
+
+class ComboBox
+class TextBox
+
+List <-- Button
+Label <-- Button
+ComboBox <-- Button
+TextBox <-- Button
+
+List -- TextBox
+List -- ComboBox
+
+@enduml

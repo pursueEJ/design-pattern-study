@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Product
+
+class ProductA
+class ProductB
+
+Product <|-- ProductA
+Product <|-- ProductB
+
+class Factory {
+    +factoryMethod(String type): Product
+}
+
+ProductA <.. Factory
+ProductB <.. Factory
+
+note left of Factory::factoryMethod
+public static Product factoryMethod(String type) {
+    if ("A".equals(type)) {
+        return new ProductA();
+    } else if ("B".equals(type)) {
+        return new ProductB();
+    } else {...}
+}
+end note
+@enduml

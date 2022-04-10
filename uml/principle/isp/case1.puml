@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface ConcreteClass {
+    +dataRead(): void
+    +transformToXml(): void
+    +createChart(): void
+    +displayChart(): void
+    +createReport(): void
+    +displayReport(): void
+}
+
+class CustomerDataDisplay
+
+class Client
+
+ConcreteClass <|-- CustomerDataDisplay
+ConcreteClass <.. Client
+
+
+@enduml

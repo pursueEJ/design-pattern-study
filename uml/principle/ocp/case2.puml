@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ChartDisplay {
+    -chart: AbstractChart
+    +setChart(AbstractChart chart): void
+    +display(): void
+}
+
+abstract class AbstractChart {
+    +display(): void
+}
+
+class PieChart {
+    +display(): void
+}
+
+class BarChart {
+    +display(): void
+}
+
+AbstractChart <-- ChartDisplay
+AbstractChart <|-- PieChart
+AbstractChart <|-- BarChart
+
+@enduml
