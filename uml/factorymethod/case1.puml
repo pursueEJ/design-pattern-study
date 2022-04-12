@@ -1,0 +1,26 @@
+\@startuml
+'https://plantuml.com/class-diagram
+
+interface Logger {
+    +writeLog(): void
+}
+
+class FileLogger {
+    +writeLog(): void
+}
+
+class DatabaseLogger {
+    +writeLog(): void
+}
+
+class LoggerFactory {
+    +createLogger(String type): Logger
+}
+
+Logger <|-- FileLogger
+Logger <|-- DatabaseLogger
+
+FileLogger <.. LoggerFactory
+DatabaseLogger <.. LoggerFactory
+
+@enduml

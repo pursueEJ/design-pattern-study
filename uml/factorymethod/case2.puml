@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Factory {
+    +factoryMethod()
+}
+
+note right of ConcreteFactory::factoryMethod
+    return new ConcreteProduct();
+end note
+class ConcreteFactory {
+    +factoryMethod()
+}
+
+interface Product
+class ConcreteProduct
+
+Product <|-- ConcreteProduct
+Factory <|-- ConcreteFactory
+
+ConcreteProduct <.. ConcreteFactory
+
+@enduml
