@@ -153,3 +153,33 @@
 ### 3.5 案例应用
 
 ![case1](img/factorymethod/case3.png)
+
+
+## 4. 抽象工厂模式
+
+### 4.1 案例
+
+界面有Button、TextField、ComboBox三种控件，有两组主题：Spring和Summer。
+
+![case1](img/abstractfactory/case1.png)
+
+从类图中可以看出，需要增加一个主题时，需要创建对应的具体主题类和具体工厂类，而且应用同一个主题风格的控件，客户端需要逐一调用每个主题工厂。
+
+### 4.2 定义
+
+抽象工厂模式（Abstract Factory Pattern）：提供一个创建一系列相关或互相依赖对象的接口，而无须指定具体的类。在抽象工厂模式中，每一个具体工厂都提供了多个工厂方法用于生产多种不同类型的同系列产品，即产品族。
+
+### 4.3 类图
+
+![case2](img/abstractfactory/case2.png)
+
+### 4.4 说明
+
+1. AbstractFactory（抽象工厂）：声明一组用于创建一系列产品的方法，每个方法对应一个产品。
+2. ConcreteFactory（具体工厂）：实现了抽象工厂声明的方法，生成一组具体的产品，这些产品组成了一个产品族。
+3. AbstractProduct（抽象产品）：声明了产品的具体业务方法。
+4. ConcreteProduct（具体产品）：定义具体工厂生产的具体产品对象，实现抽象产品接口中声明的业务方法。
+
+### 4.5 案例应用
+
+![case3](img/abstractfactory/case3.png)

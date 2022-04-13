@@ -1,0 +1,87 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface TextField
+class SpringTextField
+class SummerTextField
+
+TextField <|-- SpringTextField
+TextField <|-- SummerTextField
+
+interface TextFieldFactory {
+    +factoryMethod(): TextField
+}
+class SpringTextFieldFactory {
+    +factoryMethod(): TextField
+}
+class SummerTextFieldFactory {
+    +factoryMethod(): TextField
+}
+
+SpringTextField <.. SpringTextFieldFactory
+SummerTextField <.. SummerTextFieldFactory
+
+TextFieldFactory <|-- SpringTextFieldFactory
+TextFieldFactory <|-- SummerTextFieldFactory
+
+interface ComboBox
+class SpringComboBox
+class SummerComboBox
+
+ComboBox <|-- SpringComboBox
+ComboBox <|-- SummerComboBox
+
+interface ComboBoxFactory {
+    +factoryMethod(): ComboBox
+}
+class SpringComboBoxFactory {
+    +factoryMethod(): ComboBox
+}
+class SummerComboBoxFactory {
+    +factoryMethod(): ComboBox
+}
+
+ComboBoxFactory <|-- SpringComboBoxFactory
+ComboBoxFactory <|-- SummerComboBoxFactory
+
+SpringComboBox <.. SpringComboBoxFactory
+SummerComboBox <.. SummerComboBoxFactory
+
+interface Button
+class SpringButton
+class SummerButton
+
+Button <|-- SpringButton
+Button <|-- SummerButton
+
+interface ButtonFactory {
+   +factoryMethod(): Button
+}
+class SpringButtonFactory {
+    +factoryMethod(): Button
+}
+class SummerButtonFactory {
+    +factoryMethod(): Button
+}
+
+ButtonFactory <|-- SpringButtonFactory
+ButtonFactory <|-- SummerButtonFactory
+
+SpringButton <.. SpringButtonFactory
+SummerButton <.. SummerButtonFactory
+
+
+class Client {
+    +apply(): void
+}
+note bottom of Client
+    ButtonFactory buttonFactory = new SpringButtonFactory();
+    ComboBoxFactory comboBoxFactory = new SpringComboBoxFactory();
+    TextFieldFactory textFieldFactory = new SpringTextFieldFactory();
+
+    Button button = buttonFactory.factoryMethod();
+    ComboBox comboBox = comboBoxFactory.factoryMethod();
+    TextField textField = textFieldFactory.factoryMethod();
+end note
+
+@enduml

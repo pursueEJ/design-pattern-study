@@ -1,0 +1,66 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Button {
+    +display(): void
+}
+class SpringButton {
+    +display(): void
+}
+class SummerButton {
+    +display(): void
+}
+Button <|--- SpringButton
+Button <|--- SummerButton
+
+interface TextField {
+    +display(): void
+}
+class SpringTextField{
+    +display(): void
+}
+class SummerTextField {
+    +display(): void
+}
+TextField <|--- SpringTextField
+TextField <|--- SummerTextField
+
+interface ComboBox {
+    +display(): void
+}
+class SpringComboBox {
+    +display(): void
+}
+class SummerComboBox {
+    +display(): void
+}
+ComboBox <|--- SpringComboBox
+ComboBox <|--- SummerComboBox
+
+interface Factory {
+    +createButton(): Button
+    +createTextField(): TextField
+    +createComboBox(): ComboBox
+}
+class SpringFactory {
+    +createButton(): Button
+    +createTextField(): TextField
+    +createComboBox(): ComboBox
+}
+class SummerFactory {
+    +createButton(): Button
+    +createTextField(): TextField
+    +createComboBox(): ComboBox
+}
+Factory <|-- SpringFactory
+Factory <|-- SummerFactory
+
+SpringButton <.. SpringFactory
+SpringTextField <.. SpringFactory
+SpringComboBox <.. SpringFactory
+
+SummerButton <.. SummerFactory
+SummerTextField <.. SummerFactory
+SummerComboBox <.. SummerFactory
+
+@enduml
