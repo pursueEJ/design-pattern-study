@@ -183,3 +183,121 @@
 ### 4.5 案例应用
 
 ![case3](img/abstractfactory/case3.png)
+
+## 5. 单例模式
+
+### 5.1 案例
+
+有一个任务管理器，为了节省资源，系统中应当只有一个任务管理器实例，任务管理器有displayProcesses、displayServices等多个方法，类如下示意：
+
+```java
+class TaskManager {
+    public TaskManager() {}
+    public void displayProcesses() { }
+    public void displayServices() { }
+}
+```
+
+### 5.2 定义
+
+单例模式（Singleton Pattern）：保证类在系统中的唯一性。
+
+### 5.3 步骤
+
+为保证类的唯一性，需要将构造方法的访问修饰符修改为`private`，使外部无法使用new操作符创建多个对象。
+构造方法私有后，对外提供一个获取唯一对象的静态方法，以及一个保存唯一对象的实例。
+```java
+class TaskManager {
+    private static TaskManager instance = null;
+    
+    public static TaskManager getInstance() {
+        if (instance == null) {
+            instance = new TaskManager();
+        }
+        return instance;
+    }
+    
+    private TaskManager() {}
+    public void displayProcesses() { }
+    public void displayServices() { }
+}
+```
+上述实现在单线程环境下可以满足基本的需求，但是在多线程环境下则存在线程安全问题。
+
+### 5.4 补充
+1. 饿汉式
+```java
+class Singleton {
+    private static final Singleton instance = new Singleton();
+    
+    private Singleton() { }
+    
+    public static Singleton getInstance() {
+        return instance;
+    }
+}
+```
+
+2. 懒汉式
+
+```java
+class Singleton {
+    private static Singleton instance = null;
+
+    private Singleton() { }
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                instance = new Singleton();
+            }
+        }
+        return instance;
+    }
+}
+```
+> 多线程环境下存在线程安全问题，如果两个线程同时调用getInstance()方法，第一个线程上锁，第二个线程在同步队列等待；第一个线程创建实例后退出，第二个线程执行同步代码块并不知道实例已经创建。
+
+3. 双重检查锁定
+```java
+class Singleton {
+    private static volatile Singleton instance = null;
+
+    private Singleton() { }
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+```
+
+4. 静态内部类
+```java
+class Singleton {
+    private Singleton() { }
+    
+    private static class SingletonHolder {
+        private final static Singleton instance = new Singleton();
+    }
+    
+    public static Singleton getInstance() {
+        return SingletonHolder.instance;
+    }
+}
+```
+> 初次加载单例类时，不会初始化创建单例实例，在调用getInstance时，由JVM完成静态内部类的初始化，这一过程JVM保证线程安全。
+
+5. 枚举
+```java
+enum Singleton {
+    INSTANCE
+}
+```
+> 枚举由JVM提供线程安全和保证唯一对象
