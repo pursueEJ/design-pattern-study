@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Prototype {
+    +clone(): Prototype
+}
+
+class ConcretePrototypeA {
+    +clone(): Prototype
+}
+
+class ConcretePrototypeB {
+    +clone(): Prototype
+}
+
+Prototype <|-- ConcretePrototypeA
+Prototype <|-- ConcretePrototypeB
+
+abstract PrototypeManager {
+    -prototypeTable: Map
+    +add(String key, Prototype prototype): void
+    +get(String key): Prototype
+}
+
+class Client
+
+Prototype <.. Client
+PrototypeManager <.. Client
+
+@enduml

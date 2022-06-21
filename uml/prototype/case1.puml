@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Prototype {
+    +clone(): Prototype
+}
+
+class ConcretePrototype
+
+Prototype <|-- ConcretePrototype
+
+class Client
+
+Prototype <.. Client
+
+@enduml
