@@ -1,0 +1,38 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Builder {
+    + buildPartA()
+    + buildPartB()
+    + buildPartC()
+    + getResult()
+}
+
+class ConcreteBuilder {
+    + buildPartA()
+    + buildPartB()
+    + buildPartC()
+    + getResult()
+}
+
+class Director {
+    - builder: Builder
+    + construct()
+}
+
+Director o--> Builder
+
+
+class Product
+
+Builder <|-- ConcreteBuilder
+Product <.. ConcreteBuilder
+
+note left of Director::construct
+    builder.buildPartA();
+    builder.buildPartB();
+    builder.buildPartC();
+    return builder.getResult();
+end note
+
+@enduml
