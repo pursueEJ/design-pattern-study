@@ -16,7 +16,7 @@ class ConcreteBuilder {
 }
 
 class Director {
-    - builder: Builder
+    - create.builder: Builder
     + construct()
 }
 
@@ -29,10 +29,10 @@ Builder <|-- ConcreteBuilder
 Product <.. ConcreteBuilder
 
 note left of Director::construct
-    builder.buildPartA();
-    builder.buildPartB();
-    builder.buildPartC();
-    return builder.getResult();
+    create.builder.buildPartA();
+    create.builder.buildPartB();
+    create.builder.buildPartC();
+    return create.builder.getResult();
 end note
 
 @enduml

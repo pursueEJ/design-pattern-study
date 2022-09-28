@@ -1,10 +1,7 @@
-package abstractfactory;
+package create.abstractfactory;
 
 /**
- * <p>The class Case3 was created on 2022/4/13.</p>
- * <p>
- * TODO
- * </p>
+ * 抽象工厂模式案例3
  *
  * @author shonebin
  * @version 1.0.0
@@ -25,12 +22,14 @@ public class Case3 {
     interface Button {
         void display();
     }
+
     static class SpringButton implements Button {
         @Override
         public void display() {
             System.out.println("SpringButton");
         }
     }
+
     static class SummerButton implements Button {
         @Override
         public void display() {
@@ -41,12 +40,14 @@ public class Case3 {
     interface TextField {
         void display();
     }
+
     static class SpringTextField implements TextField {
         @Override
         public void display() {
             System.out.println("SpringTextField");
         }
     }
+
     static class SummerTextField implements TextField {
         @Override
         public void display() {
@@ -57,12 +58,14 @@ public class Case3 {
     interface ComboBox {
         void display();
     }
+
     static class SpringComboBox implements ComboBox {
         @Override
         public void display() {
             System.out.println("SpringComboBox");
         }
     }
+
     static class SummerComboBox implements ComboBox {
         @Override
         public void display() {
@@ -72,9 +75,12 @@ public class Case3 {
 
     interface Factory {
         Button createButton();
+
         TextField createTextField();
+
         ComboBox createComboBox();
     }
+
     static class SpringFactory implements Factory {
         @Override
         public Button createButton() {
@@ -91,6 +97,7 @@ public class Case3 {
             return new SpringComboBox();
         }
     }
+
     static class SummerFactory implements Factory {
         @Override
         public Button createButton() {

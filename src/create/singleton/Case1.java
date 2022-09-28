@@ -1,4 +1,4 @@
-package singleton;
+package create.singleton;
 
 /**
  * <p>The class Case1 was created on 2022/5/24.</p>

@@ -1,10 +1,7 @@
-package simplefactory;
+package create.simplefactory;
 
 /**
- * <p>The class Case1 was created on 2022/4/10.</p>
- * <p>
- * TODO
- * </p>
+ * 简单工厂
  *
  * @author shonebin
  * @version 1.0.0

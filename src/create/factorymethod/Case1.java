@@ -1,10 +1,7 @@
-package factorymethod;
+package create.factorymethod;
 
 /**
- * <p>The class Case1 was created on 2022/4/12.</p>
- * <p>
- * TODO
- * </p>
+ * 工厂方法模式案例1
  *
  * @author shonebin
  * @version 1.0.0

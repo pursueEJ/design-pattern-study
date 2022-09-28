@@ -1,10 +1,7 @@
-package prototype;
+package create.prototype;
 
 /**
- * <p>The class Case1 was created on 2022/6/21.</p>
- * <p>
  * 原型模式：案例1
- * </p>
  *
  * @author shonebin
  * @version 1.0.0

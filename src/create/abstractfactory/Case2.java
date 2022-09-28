@@ -1,10 +1,7 @@
-package abstractfactory;
+package create.abstractfactory;
 
 /**
- * <p>The class Case2 was created on 2022/4/13.</p>
- * <p>
- * TODO
- * </p>
+ * 抽象工厂模式案例2
  *
  * @author shonebin
  * @version 1.0.0

@@ -18,7 +18,7 @@ Prototype <|-- ConcretePrototypeB
 
 abstract PrototypeManager {
     -prototypeTable: Map
-    +add(String key, Prototype prototype): void
+    +add(String key, Prototype create.prototype): void
     +get(String key): Prototype
 }
 
